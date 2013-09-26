@@ -3,7 +3,7 @@
 /**
  * RepoCreator
  *
- * @author Pekka S.
+ * @author Pekka S. <nospam@astudios.org>
  * @link https://github.com/ThePaavero/RepoCreator/
  */
 
@@ -30,13 +30,17 @@ if( ! is_dir($www_path))
 {
 	if( ! is_writable($config['html_basedir']))
 	{
-		// public directory isn't writable, bail
+		// Public directory isn't writable, bail
 		$cli->line('www-directory is not writable, aborting.');
 		exit;
 	}
 
 	$cli->line('Creating www-directory...');
+
+	// Create public directory
 	mkdir($www_path);
+
+	// Make sure it's writable
 	chmod($www_path, 0777);
 }
 else
