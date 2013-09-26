@@ -6,7 +6,7 @@ namespace QuickCLI;
  * Simple helper class for quick CLI scripts
  * @author Pekka S. <nospam@astudios.org>
  */
-class CLI {
+class QuickCLI {
 
 	/**
 	 * Application name
@@ -18,13 +18,13 @@ class CLI {
 	 * Constructor
 	 * @param string $name e.g. 'My CLI application'
 	 */
-	public function __construct($name)
+	public function __construct($name = '')
 	{
 		// Make sure we're not called over HTTP
 		(php_sapi_name() === 'cli' and STDIN) or exit;
 
 		// Assign application name
-		$this->app = $name;
+		$this->app = ! empty($name) ? $name : $this->app;
 
 		// We'll possibly need a polyfill for readline()
 		$this->assureReadline();

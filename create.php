@@ -7,14 +7,14 @@
  * @link https://github.com/ThePaavero/RepoCreator/
  */
 
-// Get our CLi lib
-require 'cli.php';
+// Get our CLI lib
+require 'quickcli.php';
 
 // Get our config array
 $config = require 'config.php';
 
 // Create a CLI instance
-$cli = new QuickCLI\CLI('RepoCreator');
+$cli = new QuickCLI\QuickCLI('RepoCreator');
 
 // Prompt user for project name
 $project_name = $cli->prompt('Enter project name (sans ".git")', true);
