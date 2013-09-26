@@ -67,9 +67,15 @@ chdir('hooks');
 
 // Create our hook bash script
 $hook_code = '#!/bin/sh
-GIT_WORK_TREE=' . $config['html_basedir'] . $project_name . '
-export GIT_WORK_TREE
-git checkout -f
+while read oldrev newrev refname
+do
+    branch=$(git rev-parse --symbolic --abbrev-ref $refname)
+    if [ "master" == "$branch" ]; then
+        GIT_WORK_TREE=' . $config['html_basedir'] . $project_name . '
+        export GIT_WORK_TREE
+        git checkout -f
+    fi
+done
 ';
 
 // Write our hook file
