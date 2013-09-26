@@ -3,10 +3,10 @@ RepoCreator
 
 Quickly create a project with automated git workflow on your server
 
-Version
-----
+TL;DR
+-----------
 
-0.2
+Use this three file PHP script to automatically create both a **git repository** and a **public dev directory** on your linux box
 
 What does it do?
 -----------
