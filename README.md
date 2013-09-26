@@ -6,7 +6,7 @@ Quickly create a project with automated git workflow on your server
 TL;DR
 -----------
 
-Use this three file PHP script to automatically create both a **git repository** and a **public dev directory** on your linux box
+Use this three file PHP script to automatically create both a **git repository** and a **public dev directory** on your linux box with a **post-receive hook for deployment on each push**.
 
 What does it do?
 -----------
