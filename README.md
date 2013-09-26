@@ -24,7 +24,7 @@ Installation
 * Rename config.sample.php to config.php
 * Fill in appropriate values in config.php
 * Execute script with
-```sh
+```
 php create.php
 ```
 
