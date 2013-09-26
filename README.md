@@ -13,7 +13,7 @@ What does it do?
 
 * Creates git repository on server where script is run
 * Creates a public directory for the project
-* Creates a post-receive hook that copies changes to public directory
+* Creates a post-receive hook that copies changes to public directory **when pushed to master branch**
 * Shows you public URL for you to copy to your browser
 * Shows you SSH path to git repo for cloning project onto your local machine
 
