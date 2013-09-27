@@ -23,9 +23,17 @@ Installation
 * Copy files to your server's repository directory
 * Rename config.sample.php to config.php
 * Fill in appropriate values in config.php
-* Execute script with
+
+Usage
+--------------
+Create project with
 ```
 php create.php
+```
+
+Remove project with
+```
+php remove.php
 ```
 
 License

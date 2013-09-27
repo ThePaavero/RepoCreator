@@ -21,7 +21,7 @@ $project_name = $cli->prompt('Enter project name (sans ".git")', true);
 
 // Really do this?
 $sure = $cli->prompt('Are you sure? All files will be permanently removed. This cannot be undone! (yes/no)', true);
-if($sure === 'no')
+if($sure !== 'yes')
 {
 	$cli->line('Aborting.');
 }
