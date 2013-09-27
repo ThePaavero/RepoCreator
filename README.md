@@ -26,20 +26,15 @@ Usage
 --------------
 Create project with
 ```
-php repo -a create project_x
+php repo -a create -p project_x
 ```
 
 Remove project with
 ```
-php repo -a remove project_y
+php repo -a remove -p project_y
 ```
 
 License
 ----
 
 MIT
-
-Example flow
-----
-
-![flow](http://i.imgur.com/2rBzKb8.png "Flow")
