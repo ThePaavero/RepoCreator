@@ -136,7 +136,7 @@ class RepoCreator {
 
 		if( ! is_dir($this->dirname))
 		{
-			$cli->line('Repository doesn\'t exist, aborting...');
+			$this->cli->line('Repository doesn\'t exist, aborting...');
 			exit;
 		}
 
