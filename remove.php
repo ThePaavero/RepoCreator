@@ -20,7 +20,7 @@ $cli = new QuickCLI\QuickCLI('RepoCreator');
 $project_name = $cli->prompt('Enter project name (sans ".git")', true);
 
 // Really do this?
-$sure = $cli->prompt('Are you sure? This cannot be undone! (yes/no)', true);
+$sure = $cli->prompt('Are you sure? All files will be permanently removed. This cannot be undone! (yes/no)', true);
 if($sure === 'no')
 {
 	$cli->line('Aborting.');

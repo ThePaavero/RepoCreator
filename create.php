@@ -1,7 +1,7 @@
 <?php
 
 /**
- * RepoCreator
+ * RepoCreator (Creator)
  *
  * @author Pekka S. <nospam@astudios.org>
  * @link https://github.com/ThePaavero/RepoCreator/
