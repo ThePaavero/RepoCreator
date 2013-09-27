@@ -26,12 +26,12 @@ Usage
 --------------
 Create project with
 ```
-php create.php
+php repo -a create project_x
 ```
 
 Remove project with
 ```
-php remove.php
+php repo -a remove project_y
 ```
 
 License
