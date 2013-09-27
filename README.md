@@ -11,14 +11,14 @@ Use this small package to automatically create both a **git repository** and a *
 What does it do?
 -----------
 
-* Creates git repository on server where script is run
-* Creates a public directory for the project
+* Creates a git repository on the server
+* Creates a public directory for the project on the server
 * Creates a post-receive hook that copies changes to public directory **when pushed to master branch**
 
 Installation
 --------------
 
-* Copy files to your server
+* Clone this repo or copy files to your server
 * Rename config.sample.php to config.php
 * Fill in appropriate values in config.php
 
