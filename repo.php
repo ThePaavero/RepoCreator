@@ -31,6 +31,7 @@ if($opts['a'] === 'remove')
 	if($sure !== 'yes')
 	{
 		$cli->line('Aborting.');
+		exit;
 	}
 }
 

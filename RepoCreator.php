@@ -8,6 +8,18 @@ class RepoCreator {
 	{
 		$this->config = $config;
 		$this->cli = $cli;
+
+		if( ! is_dir($this->config['repo_basedir']))
+		{
+			$this->cli->line('Repository directory doesn\'t exist, aborting.', 1, 'red');
+			exit;
+		}
+
+		if( ! is_dir($this->config['html_basedir']))
+		{
+			$this->cli->line('Public HTML directory doesn\'t exist, aborting.', 1, 'red');
+			exit;
+		}
 	}
 
 	public function doCommand($action = 'create', $project_name = '')
