@@ -9,18 +9,38 @@ class RepoCreator {
 		$this->config = $config;
 		$this->cli = $cli;
 
+		$this->doBasicChecks();
+	}
+
+	public function doBasicChecks()
+	{
+		// Basedir for repos must exist
 		if( ! is_dir($this->config['repo_basedir']))
 		{
 			$this->cli->line('Repository directory doesn\'t exist, aborting.', 1, 'red');
 			exit;
 		}
 
+		// Basedir for repos must be writable
+		if( ! is_writable($this->config['repo_basedir']))
+		{
+			$this->cli->line('Repository directory isn\'t writable, aborting.', 1, 'red');
+			exit;
+		}
+
+		// Basedir for public HTML must exist
 		if( ! is_dir($this->config['html_basedir']))
 		{
 			$this->cli->line('Public HTML directory doesn\'t exist, aborting.', 1, 'red');
 			exit;
 		}
 
+		// Basedir for public HTML must be writable
+		if( ! is_writable($this->config['html_basedir']))
+		{
+			$this->cli->line('Public HTML directory isn\'t writable, aborting.', 1, 'red');
+			exit;
+		}
 	}
 
 	public function doCommand($action = 'create', $project_name = '')
