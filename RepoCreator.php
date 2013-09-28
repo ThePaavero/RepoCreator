@@ -55,6 +55,13 @@ class RepoCreator {
 	{
 		$this->project_name = $project_name;
 
+		// Make sure project name is legit
+		if(strpbrk($this->project_name, "\\/?%*:|\"<>") !== false)
+		{
+			$this->cli->line('Project name contains non-alphanumeric characters, aborting.', 1, 'red');
+			exit;
+		}
+
 		// Repo dir name
 		$this->dirname = $this->config['repo_basedir'] . $project_name . '.git';
 
