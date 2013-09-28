@@ -78,6 +78,10 @@ class RepoCreator {
 			exit;
 		}
 
+		// Create our hook bash script
+		$hook_template = file_get_contents('hook_template');
+		$hook_code = str_replace('[GIT_WORK_TREE_TOKEN]', $this->config['html_basedir'] . $project_name, $hook_template);
+
 		// Create git repository directory
 		mkdir($this->dirname);
 
@@ -91,19 +95,6 @@ class RepoCreator {
 
 		// CD to hooks directory
 		chdir('hooks');
-
-		// Create our hook bash script
-		$hook_code = '#!/bin/sh
-		while read oldrev newrev refname
-		do
-		    branch=$(git rev-parse --symbolic --abbrev-ref $refname)
-		    if [ "master" == "$branch" ]; then
-		        GIT_WORK_TREE=' . $this->config['html_basedir'] . $project_name . '
-		        export GIT_WORK_TREE
-		        git checkout -f
-		    fi
-		done
-		';
 
 		// Write our hook file
 		file_put_contents('post-receive', $hook_code);

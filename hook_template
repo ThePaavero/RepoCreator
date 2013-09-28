@@ -1,0 +1,10 @@
+#!/bin/sh
+while read oldrev newrev refname
+do
+    branch=$(git rev-parse --symbolic --abbrev-ref $refname)
+    if [ "master" == "$branch" ]; then
+        GIT_WORK_TREE=[GIT_WORK_TREE_TOKEN]
+        export GIT_WORK_TREE
+        git checkout -f
+    fi
+done
