@@ -2,6 +2,14 @@
 
 namespace RepoCreator;
 
+/**
+ * RepoCreator class
+ *
+ * @package RepoCreator
+ * @author  Pekka.s <nospam@astudios.org>
+ * @link    https://github.com/ThePaavero/RepoCreator
+ * @license MIT
+ */
 class RepoCreator {
 
 	public function __construct($cli, $config)
@@ -45,6 +53,8 @@ class RepoCreator {
 
 	public function doCommand($action = 'create', $project_name = '')
 	{
+		$this->project_name = $project_name;
+
 		// Repo dir name
 		$this->dirname = $this->config['repo_basedir'] . $project_name . '.git';
 
@@ -82,6 +92,9 @@ class RepoCreator {
 
 			// Make sure it's writable
 			chmod($this->www_path, 0777);
+
+			// Throw in a default index.html just for shits 'n' giggles
+			file_put_contents($this->www_path . '/index.html', '<h1>Placeholder for project "' . $this->project_name . '"</h1><p>Push to master branch to deploy here.</p>');
 		}
 		else
 		{

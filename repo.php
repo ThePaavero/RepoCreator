@@ -1,5 +1,14 @@
 <?php
 
+/**
+ * Execute this file from the command line
+ *
+ * @package RepoCreator
+ * @author  Pekka.s <nospam@astudios.org>
+ * @link    https://github.com/ThePaavero/RepoCreator
+ * @license MIT
+ */
+
 require 'quickcli.php';
 $cli = new QuickCLI\QuickCLI('RepoCreator');
 
@@ -36,6 +45,13 @@ if($opts['a'] === 'remove')
 }
 
 $repo->doCommand($opts['a'], $opts['p']);
+
+// ---------------------------------------------------------------------------
+
+if($opts['a'] === 'create')
+{
+	// Do more stuff? TODO
+}
 
 // ---------------------------------------------------------------------------
 
