@@ -20,12 +20,16 @@ class RepoCreator {
 			$this->cli->line('Public HTML directory doesn\'t exist, aborting.', 1, 'red');
 			exit;
 		}
+
 	}
 
 	public function doCommand($action = 'create', $project_name = '')
 	{
 		// Repo dir name
 		$this->dirname = $this->config['repo_basedir'] . $project_name . '.git';
+
+		// Public dir path
+		$this->www_path = $this->config['html_basedir'] . $project_name;
 
 		switch($action)
 		{
@@ -41,11 +45,8 @@ class RepoCreator {
 
 	public function createRepo($project_name)
 	{
-		// Build our public directory path
-		$www_path = $this->config['html_basedir'] . $project_name;
-
 		// If public directory doesn't exist, create it
-		if( ! is_dir($www_path))
+		if( ! is_dir($this->www_path))
 		{
 			if( ! is_writable($this->config['html_basedir']))
 			{
@@ -57,10 +58,10 @@ class RepoCreator {
 			$this->cli->line('Creating www-directory...');
 
 			// Create public directory
-			mkdir($www_path);
+			mkdir($this->www_path);
 
 			// Make sure it's writable
-			chmod($www_path, 0777);
+			chmod($this->www_path, 0777);
 		}
 		else
 		{
@@ -122,16 +123,14 @@ class RepoCreator {
 
 	public function removeRepo($project_name)
 	{
-		$www_path = $this->config['html_basedir'] . $project_name;
-
-		if( ! is_dir($www_path))
+		if( ! is_dir($this->www_path))
 		{
 			$this->cli->line('www-directory doesn\'t exist...');
 		}
 		else
 		{
 			$this->cli->line('Removing www-directory...');
-			exec('rm -rf ' . $www_path);
+			exec('rm -rf ' . $this->www_path);
 		}
 
 		if( ! is_dir($this->dirname))
