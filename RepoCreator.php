@@ -12,6 +12,12 @@ namespace RepoCreator;
  */
 class RepoCreator {
 
+	/**
+	 * Constructor
+	 * @param object $cli    CLI Helper class instance
+	 * @param array $config  Configuration array
+	 * @return null
+	 */
 	public function __construct($cli, $config)
 	{
 		$this->config = $config;
@@ -20,6 +26,10 @@ class RepoCreator {
 		$this->doBasicChecks();
 	}
 
+	/**
+	 * Do some basic checks before running anything (exits on fail)
+	 * @return null
+	 */
 	public function doBasicChecks()
 	{
 		// Basedir for repos must exist
@@ -51,6 +61,12 @@ class RepoCreator {
 		}
 	}
 
+	/**
+	 * Run action
+	 * @param  string $action       'create' or 'remove'
+	 * @param  string $project_name e.g. 'www_application'
+	 * @return null
+	 */
 	public function doCommand($action = 'create', $project_name = '')
 	{
 		$this->project_name = $project_name;
@@ -80,6 +96,11 @@ class RepoCreator {
 		}
 	}
 
+	/**
+	 * Create project repository and public dir
+	 * @param  string $project_name e.g. 'www_application'
+	 * @return null
+	 */
 	public function createRepo($project_name)
 	{
 		// If public directory doesn't exist, create it
@@ -152,6 +173,11 @@ class RepoCreator {
 		$this->cli->line('git clone ssh://[USERNAME]@[DOMAIN]' . $this->config['repo_basedir'] . $this->dirname . ' ./', 2, 'green');
 	}
 
+	/**
+	 * Remove repository and public dir
+	 * @param  string $project_name e.g. 'www_application'
+	 * @return null
+	 */
 	public function removeRepo($project_name)
 	{
 		if( ! is_dir($this->www_path))

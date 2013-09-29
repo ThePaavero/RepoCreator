@@ -1,0 +1,4 @@
+title: RepoCreator
+source: .
+destination: ./docs/
+extensions: [php]
