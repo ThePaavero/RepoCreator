@@ -170,7 +170,7 @@ class RepoCreator {
 		$this->cli->line('http://[DOMAIN]/' . $project_name, 1);
 
 		// Print line to put into git bash
-		$this->cli->line('git clone ssh://[USERNAME]@[DOMAIN]' . $this->config['repo_basedir'] . $this->dirname . ' ./', 2, 'green');
+		$this->cli->line('git clone ssh://[USERNAME]@[DOMAIN]' . $this->config['repo_basedir'] . $this->project_name . '.git ./', 2, 'green');
 	}
 
 	/**
